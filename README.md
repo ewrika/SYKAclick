@@ -1,1 +1,1 @@
-# SYKAclick
+https://ewrika.github.io/SYKAclick/
