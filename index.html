@@ -16,14 +16,7 @@
     </head>
     <body>
         <!-- Интро-экран -->
-        <div id="intro-screen">
-            <video src="bg-video.mp4" autoplay muted loop id="bg-video"></video>
-            <div class="intro-content">
-                <button id="enter-btn">Click to enter</button>
-            </div>
-        </div>
-
-        <div id="resume-screen" style="display:none;">
+        <div id="resume-screen">
             <div class="resume-container">
                 <div class="resume-header">
                     <img src="photo/me.jpg" alt="" class="resume-photo">
@@ -192,15 +185,6 @@
         <script defer>
             window.addEventListener('DOMContentLoaded', function() {
                 window.scrollTo(0, 0); 
-
-                var enterBtn = document.getElementById('enter-btn');
-                if (enterBtn) {
-                    enterBtn.onclick = function() {
-                        document.getElementById('intro-screen').style.display = 'none';
-                        document.getElementById('resume-screen').style.display = 'block';
-                        window.scrollTo(0, 0); 
-                    };
-                }
 
                 function openLightbox(src) {
                     var lightbox = document.getElementById('img-lightbox');
