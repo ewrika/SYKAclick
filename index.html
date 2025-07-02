@@ -1,63 +1,258 @@
 <!DOCTYPE html>
-<html lang="en">  
+<html lang="ru">
     <head>
-        <meta charset="utf-8">
-        <title>egg_orr</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Мое резюме</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta property="og:type" content="website">
         <meta property="og:site_name" content="egg_orr">
         <meta property="og:title" content="egg_orr">
         <meta property="og:description" content="$$$">
-         <meta property="og:image" content="https://i.imgur.com/almZRfd.jpeg">
+        <meta property="og:image" content="https://ibb.co/QjCrLpdV">
         <meta name="theme-color" content="#0ced13">
         <link rel="stylesheet" href="main.css">
     </head>
     <body>
-        <main>
-            <script>
-                function audioPlay() {
-                    var audio = document.getElementById("audio");
-                    audio.volume = 0.1;
-                    audio.play()
-                }
-                function videoPlay() {
-                    var video = document.getElementById("video");
-                    video.play()
-                }
-            </script>
-            <input type="checkbox" autocomplete="off" id="overlay-toggle">
-            <div class="overlay fullscreen">
-                <label for="overlay-toggle" onclick="audioPlay();videoPlay()">
-                    <span class="no-hover" style="font-family: mono; font-size: 0.6em;">tap to enter</span>
-                    <span class="hover" style="font-family: mono; font-size: 0.6em;">click to enter</span>
-                </label>
+        <!-- Интро-экран -->
+        <div id="intro-screen">
+            <video src="bg-video.mp4" autoplay muted loop id="bg-video"></video>
+            <div class="intro-content">
+                <button id="enter-btn">Click to enter</button>
             </div>
-            <audio loop preload="auto" id="audio">
-                <source src="dot5.mp3" type="audio/mp3">
-            </audio>
-            <video  loop playsinline preload="auto" class="fullscreen bg-video" id="video">
-                <source src="bg-video.mp4" type="video/mp4">
-            </video>
-            <section class="fullscreen text-content">
-                <h1 style="font-family: derk; text-shadow: 0 0 0.40em #bababa;">egg_orr</h1>
-                -
-                <div class='test-fix'>
-                    <a href="https://vk.com/egg_orr" style="text-decoration:none; font-family: mono; font-size: 1.4em; text-shadow: 0 0 0.40em #bababa;">VK</a>
-                    /
-                    <a href="https://t.me/egg_orr" style="text-decoration:none; font-family: mono; font-size: 1.4em; text-shadow: 0 0 0.40em #bababa;">TG</a>
-                    /
-                    <a href="https://www.instagram.com/egg.orr/" style="text-decoration: none; font-family: mono; font-size: 1.4em; text-shadow: 0 0 0.40em #bababa;">INST</a>
-                    /
-                    <a href="https://github.com/ewrika" style="text-decoration: none; font-family: mono; font-size: 1.4em; text-shadow: 0 0 0.40em #bababa;">GITHUB</a>
-                    /
-                    <a href="Резюме.pdf" download style="text-decoration: none; font-family: mono; font-size: 1.4em; text-shadow: 0 0 0.40em #bababa;">РЕЗЮМЕ</a>
+        </div>
+
+        <div id="resume-screen" style="display:none;">
+            <div class="resume-container">
+                <div class="resume-header">
+                    <img src="photo/me.jpg" alt="" class="resume-photo">
+                    <div>
+                        <h1>Борисов Георгий Владимирович</h1>
+                        <div class="contacts">
+                            <span class="contact-email">egorkaomsk_2003@mail.ru</span>
+                            <a class="contact-link" href="tel:+79136412150">
+                                <img class="contact-icon" src="icon/telephone.png" alt="Phone"> +7 (913) 641-21-50
+                            </a>
+                            <a class="contact-link" href="https://vk.com/egg_orr" target="_blank">
+                                <img class="contact-icon" src="icon/vk.png" alt="VK"> VK
+                            </a>
+                            <a class="contact-link" href="https://t.me/egg_orr" target="_blank">
+                                <img class="contact-icon" src="icon/tg.png" alt="Telegram"> Telegram
+                            </a>
+                            <a class="contact-link" href="https://github.com/ewrika" target="_blank">
+                                <img class="contact-icon" src="icon/github.png" alt="GitHub"> GitHub
+                            </a>
+                        </div>
+                    </div>
                 </div>
-            </section>
-            
-            <div style="position: relative">
-                <p style="position: fixed; bottom: 0; width:100%; text-align: center; font-family: mono; color: white; text-shadow: 0 0 0.40em #bababa;">© egg_orr - 2022</p>
+                <section>
+                    <h2>Опыт работы <span id="work-exp"></span></h2>
+                    <div class="work-item">
+                        <div class="work-logo"><img src="photo/Company/1.jpg" alt="Логотип лаборатории"></div>
+                        <div class="work-period">01.06.2024 - 01.09.2024</div>
+                        <div class="work-company">Студенческая IT лаборатория</div>
+                        <div class="work-project">Vidial</div>
+                        <a class="work-link" href="https://youtu.be/6WC3QNkqxWU" target="_blank">https://youtu.be/6WC3QNkqxWU</a>
+                        <div class="work-role">iOS Developer</div>
+                        <div class="work-desc">• 30+ экранов, подключил к сети(Акции, новости, карты, личный кабинет)</div>
+                        <div class="work-desc">• Отправка SMS с кодом</div>
+                        <div class="work-desc">• Авторизация Auth1.0</div>
+                        <div class="work-desc">• Примерка очков с помощью дополненной реальности</div>
+                        <div class="work-desc">• Отображения филиалов на карте</div>
+                        <div class="work-tech">
+                            <span class="work-tag">Swift</span>
+                            <span class="work-tag">SwiftUI</span>
+                            <span class="work-tag">ARkit</span>
+                            <span class="work-tag">KingFisher</span>
+                            <span class="work-tag">Firebase</span>
+                            <span class="work-tag">Mapkit</span>
+                            <span class="work-tag">Alamofire</span>
+                            <span class="work-tag">MVVM</span>
+                        </div>
+                        <div class="meme-images">
+                        <img class="project-screen" src="photo/vidial/1.jpg" alt="Главное меню">
+                        <img class="project-screen" src="photo/vidial/2.jpg" alt="Карта">
+                        <img class="project-screen" src="photo/vidial/3.jpg" alt="Примерка Очков">
+                        <img class="project-screen" src="photo/vidial/4.jpg" alt="История">
+                        <img class="project-screen" src="photo/vidial/5.jpg" alt="Каталог">
+                        </div>
+                    </div>
+                                         <div class="work-item">
+                        <div class="work-logo"><img src="photo/Company/2.jpg" alt="Логотип Effective"></div>
+                        <div class="work-period">01.02.2025 - По настоящее время</div>
+                        <div class="work-company">Effective</div>
+                        <div class="work-project">Newston</div>
+                        <a class="work-link" href="https://apps.apple.com/ru/app/newston/id6455303961" target="_blank">https://apps.apple.com/ru/app/newston/id6455303961</a>
+                        <div class="work-role">intern iOS Developer</div>
+                        <div class="work-desc">• Поддержание работоспособности приложения</div>
+                        <div class="work-desc">• Исправление багов/верстки</div>
+                        <div class="work-desc">• Внедрение A/B тестов</div>
+                        <div class="work-tech">
+                            <span class="work-tag">Swift</span>
+                            <span class="work-tag">SwiftUI</span>
+                            <span class="work-tag">UIKIT</span>
+                            <span class="work-tag">MVVM+Coordinator</span>
+                            <span class="work-tag">WebView</span>
+                            <span class="work-tag">Firebase</span>
+                            <span class="work-tag">KingFisher</span>
+                        </div>
+
+                    </div>
+                </section>
+                <section>
+                    <h2>ПетПроекты/Прочее</h2>
+                    <div class="project-item">
+                        <div class="project-title">Достоевский.Расписание</div>
+                        <a class="project-link" href="#" target="_blank">https://ссылка_на_проект</a>
+                        <div class="project-desc">Приложение для просмотра расписания в ОмГУ.</div>
+                        <div class="work-tech">
+                            <span class="work-tag">Swift</span>
+                            <span class="work-tag">SwiftUI</span>
+                            <span class="work-tag">MVVM</span>
+                            <span class="work-tag">Neumorphic</span>
+                            <span class="work-tag">MapKit</span>
+                            <span class="work-tag">Notification</span>
+                            <span class="work-tag">JSON</span>
+                            <span class="work-tag">URLSession</span>
+                            <span class="work-tag">Async/Await</span>
+                        </div>
+                        <div class="project-screens">
+                            <img class="project-screen" src="photo/omgu/1.jpg" alt="Расписание">
+                            <img class="project-screen" src="photo/omgu/2.jpg" alt="Карта">
+                            <img class="project-screen" src="photo/omgu/3.jpg" alt="Popup">
+                        </div>
+                    </div>
+                                         <div class="project-item">
+                        <div class="project-title">Marvel</div>
+                        <a class="project-link" href="https://github.com/ewrika/Marvel" target="_blank">https://github.com/ewrika/Marvel</a>
+                        <div class="project-desc">Приложение для просмотра героев Marvel.</div>
+                        <div class="work-tech">
+                            <span class="work-tag">Swift</span>
+                            <span class="work-tag">UIKIT</span>
+                            <span class="work-tag">MVVM+Coordinator</span>
+                            <span class="work-tag">Realm</span>
+                            <span class="work-tag">Alamofire</span>
+                            <span class="work-tag">JSON API</span>
+                            <span class="work-tag">KingFisher </span>
+                            <span class="work-tag">Async/Await</span>
+                        </div>
+                        <div class="project-screens">
+                            <img class="project-screen" src="photo/Marvel/1.jpg" alt="MainSolo">
+
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <h2>Навыки</h2>
+                        <div class="work-tech">
+                            <span class="work-tag">Swift</span>
+                            <span class="work-tag">SwiftUI</span>
+                            <span class="work-tag">UIKIT</span>
+                            <span class="work-tag">KingFisher</span>
+                            <span class="work-tag">Firebase</span>
+                            <span class="work-tag">Mapkit</span>
+                            <span class="work-tag">Alamofire</span>
+                            <span class="work-tag">Async/Await</span>
+                            <span class="work-tag">GCD</span>
+                            <span class="work-tag">Combine</span>
+                            <span class="work-tag">Notification</span>
+                            <span class="work-tag">MVVM+Coordinator</span>
+                            <span class="work-tag">QT</span>
+                        </div>
+                </section>
+                <section>
+                    <h2>Высшее</h2>
+                    <p>ОмГУ, Компьютерная безопасность, 2021-2027</p>
+                </section>
             </div>
-		
-        </main>
+        </div>
+
+        <section class="meme-block">
+            <h2>Meme</h2>
+            <div class="meme-images">
+                <img src="meme/1.jpg" alt="meme 1" class="meme-img">
+                <img src="meme/2.jpg" alt="meme 2" class="meme-img">
+                <img src="meme/3.jpg" alt="meme 3" class="meme-img">
+                <img src="meme/4.jpg" alt="meme 4" class="meme-img">
+                <img src="meme/5.jpg" alt="meme 5" class="meme-img">
+                <img src="meme/6.jpg" alt="meme 6" class="meme-img">
+                <img src="meme/7.jpg" alt="meme 7" class="meme-img">
+                <img src="meme/8.jpg" alt="meme 8" class="meme-img">
+                <img src="meme/9.jpg" alt="meme 9" class="meme-img">
+                <img src="meme/10.jpg" alt="meme 10" class="meme-img">
+            </div>
+        </section>
+
+        <div id="img-lightbox" class="img-lightbox" style="display:none;">
+            <span class="img-lightbox-close" id="img-lightbox-close">×</span>
+            <img class="img-lightbox-img" id="img-lightbox-img" src="" alt="Увеличенное изображение">
+        </div>
+
+        <script defer>
+            window.addEventListener('DOMContentLoaded', function() {
+                window.scrollTo(0, 0); 
+
+                var enterBtn = document.getElementById('enter-btn');
+                if (enterBtn) {
+                    enterBtn.onclick = function() {
+                        document.getElementById('intro-screen').style.display = 'none';
+                        document.getElementById('resume-screen').style.display = 'block';
+                        window.scrollTo(0, 0); 
+                    };
+                }
+
+                function openLightbox(src) {
+                    var lightbox = document.getElementById('img-lightbox');
+                    var img = document.getElementById('img-lightbox-img');
+                    img.src = src;
+                    lightbox.style.display = 'flex';
+                }
+                function closeLightbox() {
+                    document.getElementById('img-lightbox').style.display = 'none';
+                    document.getElementById('img-lightbox-img').src = '';
+                }
+                var closeBtn = document.getElementById('img-lightbox-close');
+                if (closeBtn) closeBtn.onclick = closeLightbox;
+                var lightboxDiv = document.getElementById('img-lightbox');
+                if (lightboxDiv) {
+                    lightboxDiv.onclick = function(e) {
+                        if (e.target === this) closeLightbox();
+                    };
+                }
+
+                function enableImgZoom(selector) {
+                    document.querySelectorAll(selector).forEach(function(img) {
+                        img.style.cursor = 'zoom-in';
+                        img.onclick = function(e) {
+                            e.stopPropagation();
+                            openLightbox(this.src);
+                        };
+                    });
+                }
+                enableImgZoom('.meme-img');
+                enableImgZoom('.project-screen');
+                enableImgZoom('.gif-left img');
+                enableImgZoom('.gif-right img');
+
+                function getWorkExpText() {
+                    const start = new Date(2024, 6, 1);
+                    const now = new Date();
+                    let years = now.getFullYear() - start.getFullYear();
+                    let months = now.getMonth() - start.getMonth();
+                    if (months < 0) {
+                        years--;
+                        months += 12;
+                    }
+                    let res = '';
+                    if (years > 0) res += years + ' ' + (years === 1 ? 'год' : (years < 5 ? 'года' : 'лет'));
+                    if (months > 0) res += (res ? ' ' : '') + months + ' ' + (months === 1 ? 'месяц' : (months < 5 ? 'месяца' : 'месяцев'));
+                    if (!res) res = 'меньше месяца';
+                    return '(' + res + ')';
+                }
+                var workExp = document.getElementById('work-exp');
+                if (workExp) workExp.textContent = getWorkExpText();
+            });
+        </script>
     </body>
+</html>
