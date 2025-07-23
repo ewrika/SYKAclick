@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Резюме iOS Dev</title>
+        <title>Резюме iOS & QA Dev</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta property="og:type" content="website">
@@ -43,7 +43,7 @@
                     <h2>Опыт работы <span id="work-exp"></span></h2>
                     <div class="work-item">
                         <div class="work-logo"><img src="photo/Company/1.jpg" alt="Логотип лаборатории"></div>
-                        <div class="work-period">01.06.2024 - 01.09.2024</div>
+                        <div class="work-period">01.06.2024 - 01.11.2024</div>
                         <div class="work-company">Студенческая IT лаборатория</div>
                         <div class="work-project">Vidial</div>
                         <a class="work-link" href="https://youtu.be/6WC3QNkqxWU" target="_blank">https://youtu.be/6WC3QNkqxWU</a>
@@ -71,9 +71,9 @@
                         <img class="project-screen" src="photo/vidial/5.jpg" alt="Каталог">
                         </div>
                     </div>
-                                         <div class="work-item">
+                     <div class="work-item">
                         <div class="work-logo"><img src="photo/Company/2.jpg" alt="Логотип Effective"></div>
-                        <div class="work-period">01.02.2025 - 11.07.2025</div>
+                        <div class="work-period">01.01.2025 - 01.07.2025</div>
                         <div class="work-company">Effective</div>
                         <div class="work-project">Newston</div>
                         <a class="work-link" href="https://apps.apple.com/ru/app/newston/id6455303961" target="_blank">https://apps.apple.com/ru/app/newston/id6455303961</a>
@@ -92,6 +92,20 @@
                         </div>
 
                     </div>
+                     <div class="work-item">
+                        <div class="work-logo"><img src="photo/Company/t-bank.jpg" alt="Логотип T-Bank"></div>
+                        <div class="work-period">01.08.2025 - xx.xx.xxxx</div>
+                        <div class="work-company">Т-Банк</div>
+                        <div class="work-project">XXX</div>
+                        <a class="work-link" href="https://www.tbank.ru/" target="_blank">https://www.tbank.ru/</a>
+                        <div class="work-role">QA Engineer - Старт карьеры</div>
+                        <div class="work-desc">• XXX</div>
+                        <div class="work-tech">
+                            <span class="work-tag">XXX</span>
+                        </div>
+
+                    </div>
+
                 </section>
                 <section>
                     <h2>ПетПроекты</h2>
@@ -221,23 +235,39 @@
                 enableImgZoom('.gif-left img');
                 enableImgZoom('.gif-right img');
 
-                function getWorkExpText() {
-                    const start = new Date(2024, 6, 1);
-                    const now = new Date();
-                    let years = now.getFullYear() - start.getFullYear();
-                    let months = now.getMonth() - start.getMonth();
-                    if (months < 0) {
-                        years--;
-                        months += 12;
-                    }
-                    let res = '';
-                    if (years > 0) res += years + ' ' + (years === 1 ? 'год' : (years < 5 ? 'года' : 'лет'));
-                    if (months > 0) res += (res ? ' ' : '') + months + ' ' + (months === 1 ? 'месяц' : (months < 5 ? 'месяца' : 'месяцев'));
-                    if (!res) res = 'меньше месяца';
-                    return '(' + res + ')';
+                
+                function parseDate(str) {
+                    
+                    const [day, month, year] = str.split('.').map(Number);
+                    if (!day || !month || !year) return null;
+                    return new Date(year, month - 1, day);
                 }
-                var workExp = document.getElementById('work-exp');
-                if (workExp) workExp.textContent = getWorkExpText();
+                function calcExperience() {
+                    let totalMonths = 0;
+                    document.querySelectorAll('.work-period').forEach(periodEl => {
+                        const text = periodEl.textContent.trim();
+                       
+                        const match = text.match(/(\d{2}\.\d{2}\.\d{4})\s*-\s*(\d{2}\.\d{2}\.\d{4})/);
+                        if (match) {
+                            const start = parseDate(match[1]);
+                            const end = parseDate(match[2]);
+                            if (start && end && end > start) {
+                                let months = (end.getFullYear() - start.getFullYear()) * 12 + (end.getMonth() - start.getMonth());
+                                if (end.getDate() >= start.getDate()) months++;
+                                totalMonths += months;
+                            }
+                        }
+                    });
+                    const years = Math.floor(totalMonths / 12);
+                    const months = totalMonths % 12;
+                    let result = '';
+                    if (years > 0) result += years + ' ' + (years === 1 ? 'год' : (years < 5 ? 'года' : 'лет'));
+                    if (months > 0) result += (result ? ' ' : '') + months + ' ' + (months === 1 ? 'месяц' : (months < 5 ? 'месяца' : 'месяцев'));
+                    if (!result) result = 'меньше месяца';
+                    document.getElementById('work-exp').textContent = '(' + result + ')';
+                }
+                calcExperience();
+
             });
         </script>
     </body>
