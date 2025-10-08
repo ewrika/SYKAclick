@@ -92,19 +92,38 @@
                         </div>
 
                     </div>
-                     <div class="work-item">
-                        <div class="work-logo"><img src="photo/Company/t-bank.jpg" alt="Логотип T-Bank"></div>
-                        <div class="work-period">01.08.2025 - xx.xx.xxxx</div>
-                        <div class="work-company">Т-Банк</div>
-                        <div class="work-project">XXX</div>
-                        <a class="work-link" href="https://www.tbank.ru/" target="_blank">https://www.tbank.ru/</a>
-                        <div class="work-role">QA Engineer - Старт карьеры</div>
-                        <div class="work-desc">• XXX</div>
-                        <div class="work-tech">
-                            <span class="work-tag">XXX</span>
-                        </div>
+                     
+<div class="work-item">
+    <div class="work-logo"><img src="photo/Company/t-bank.jpg" alt="Логотип T-Bank"></div>
+    <div class="work-period">01.08.2025 - н.в.</div>
+    <div class="work-company">Т-Банк</div>
+    <div class="work-project">Мобильное приложение Т-Банк</div>
+    <a class="work-link" href="https://www.tbank.ru/" target="_blank">https://www.tbank.ru/</a>
+    <div class="work-role">QA Engineer — Старт карьеры</div>
+    <div class="work-desc">• Еженедельно участвовал в регрессионных тестах мобильных приложений (iOS и Android).</div>
+    <div class="work-desc">• Тестировал новый функционал и проверял стабильность существующих модулей.</div>
+    <div class="work-desc">• Создавал и документировал тест-кейсы в Allure TestOps.</div>
+    <div class="work-desc">• Реализовывал автоматизацию тест-кейсов на Swift (XCTest) для iOS.</div>
+    <div class="work-desc">• Активно использовал Charles Proxy для перехвата трафика, настройки моков и работы с брейкпоинтами.</div>
+    <div class="work-desc">• Анализировал и отлаживал сетевые запросы/ответы между приложением и сервером.</div>
+    <div class="work-desc">• Принимал участие в составлении документации новых фич.</div>
+    <div class="work-desc">• Работал с deeplink.</div>
+    <div class="work-tech">
+        <span class="work-tag">Функциональное тестирование</span>
+        <span class="work-tag">Ручное тестирование</span>
+        <span class="work-tag">Smoke-тестирование</span>
+        <span class="work-tag">Автоматизированное тестирование</span>
+        <span class="work-tag">Git</span>
+        <span class="work-tag">Allure</span>
+        <span class="work-tag">Swift</span>
+        <span class="work-tag">Postman</span>
+        <span class="work-tag">Charles Proxy</span>
+        <span class="work-tag">Xcode</span>
+        <span class="work-tag">Python</span>
+        <span class="work-tag">Atlassian Confluence</span>
+    </div>
+</div>
 
-                    </div>
 
                 </section>
                 <section>
@@ -246,11 +265,12 @@
                     let totalMonths = 0;
                     document.querySelectorAll('.work-period').forEach(periodEl => {
                         const text = periodEl.textContent.trim();
-                       
-                        const match = text.match(/(\d{2}\.\d{2}\.\d{4})\s*-\s*(\d{2}\.\d{2}\.\d{4})/);
+
+                        // ищем даты, включая "н.в."
+                        const match = text.match(/(\d{2}\.\d{2}\.\d{4})\s*-\s*(\d{2}\.\d{2}\.\d{4}|н\.в\.)/i);
                         if (match) {
                             const start = parseDate(match[1]);
-                            const end = parseDate(match[2]);
+                            const end = match[2].toLowerCase().includes('н.в.') ? new Date() : parseDate(match[2]);
                             if (start && end && end > start) {
                                 let months = (end.getFullYear() - start.getFullYear()) * 12 + (end.getMonth() - start.getMonth());
                                 if (end.getDate() >= start.getDate()) months++;
@@ -258,6 +278,7 @@
                             }
                         }
                     });
+
                     const years = Math.floor(totalMonths / 12);
                     const months = totalMonths % 12;
                     let result = '';
