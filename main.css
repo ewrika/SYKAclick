@@ -400,6 +400,83 @@ li {
   }
 }
 
+/* Сертификаты (JPG/PNG + PDF) */
+.certificates-section {
+  margin-top: 4px;
+}
+.certificates-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  align-items: stretch;
+  margin-top: 10px;
+}
+.cert-card {
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+.cert-image-wrap {
+  background: #fafafa;
+  border: 1px solid #e8e8e8;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cert-thumb {
+  display: block;
+  max-width: min(320px, 100%);
+  width: auto;
+  max-height: 420px;
+  object-fit: contain;
+  border-radius: 6px;
+  background: #fff;
+}
+.cert-pdf {
+  flex: 0 1 220px;
+  min-height: 160px;
+  padding: 22px 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-decoration: none;
+  color: #222;
+  background: linear-gradient(180deg, #fafafa 0%, #f0f0f0 100%);
+  border: 1px solid #ddd;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.cert-pdf:hover {
+  border-color: #1976d2;
+  box-shadow: 0 4px 20px rgba(25, 118, 210, 0.12);
+}
+.cert-pdf-badge {
+  font-family: derk, mono, sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  color: #b71c1c;
+  letter-spacing: 0.06em;
+}
+.cert-pdf-title {
+  font-size: 0.95rem;
+  text-align: center;
+  line-height: 1.35;
+  color: #333;
+}
+@media (max-width: 600px) {
+  .certificates-grid {
+    gap: 12px;
+  }
+  .cert-pdf {
+    flex: 1 1 100%;
+    min-height: 140px;
+  }
+  .cert-thumb {
+    max-width: 100%;
+  }
+}
+
 .img-lightbox {
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;

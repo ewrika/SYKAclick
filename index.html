@@ -145,6 +145,22 @@
             </div>
         </section> <!-- Закрываем секцию Опыт работы -->
 
+        <!-- Сертификаты: JPG/PNG — превью по клику; PDF — карточка со ссылкой -->
+        <section class="certificates-section">
+            <h2>Сертификаты</h2>
+            <div class="certificates-grid">
+                <!-- Изображение: положите .jpg / .jpeg / .png в папку certificates/ -->
+
+                <div class="cert-card cert-image-wrap">
+                    <img class="cert-thumb" src="certificates/SelectelMobileQa.png" alt="Сертификат">
+                </div>
+
+                <div class="cert-card cert-image-wrap">
+                    <img class="cert-thumb" src="certificates/SurfiOS.PNG" alt="Сертификат">
+                </div>
+            </div>
+        </section>
+
         <!-- Секция с ПетПроектами -->
         <section>
             <h2>ПетПроекты</h2>
@@ -321,6 +337,7 @@
                 }
                 enableImgZoom('.meme-img');
                 enableImgZoom('.project-screen');
+                enableImgZoom('.cert-thumb');
                 enableImgZoom('.gif-left img');
                 enableImgZoom('.gif-right img');
 
