@@ -179,7 +179,23 @@
                     <img class="project-screen" src="photo/vidial/5.jpg" alt="Каталог">
                 </div>
             </div>
-        </section> <!-- Закрываем секцию Опыт работы -->
+        </section> 
+
+        <!-- Сертификаты: JPG/PNG — превью по клику; PDF — карточка со ссылкой -->
+        <section class="certificates-section">
+            <h2>Сертификаты</h2>
+            <div class="certificates-grid">
+                <!-- Изображение: положите .jpg / .jpeg / .png в папку certificates/ -->
+
+                <div class="cert-card cert-image-wrap">
+                    <img class="cert-thumb" src="certificates/SelectelMobileQa.png" alt="Сертификат">
+                </div>
+
+                <div class="cert-card cert-image-wrap">
+                    <img class="cert-thumb" src="certificates/SurfiOS.PNG" alt="Сертификат">
+                </div>
+            </div>
+        </section>
 
         <!-- Секция с ПетПроектами -->
         <section>
@@ -230,6 +246,24 @@
                     <img class="project-screen" src="photo/omgu/3.jpg" alt="Popup">
                 </div>
             </div>
+
+                <div class="project-item">
+                <div class="project-title">OWASP mobile top 10</div>
+                <a class="project-link" href="https://github.com/ewrika/Guidlines-Secure-Code-for-OWASP-10-mobile" target="_blank">https://github.com/ewrika/Guidlines-Secure-Code-for-OWASP-10-mobile</a>
+                <div class="project-desc">Курсовой проект по OWASP Mobile top 10.</div>
+                <div class="work-tech">
+                    <span class="work-tag">InsecureDataStorage</span>
+                    <span class="work-tag">InsecureAuth</span>
+                    <span class="work-tag">PoorCode</span>
+                    <span class="work-tag">ReverseEngineering</span>
+                    <span class="work-tag">InsecureCommunication</span>
+                </div>
+                <div class="project-screens">
+                    <img class="project-screen" src="photo/Owasp/jailbreak_demo.png" alt="jailbreak_demo">
+                    <img class="project-screen" src="photo/Owasp/userdefaults_demo.jpeg" alt="userdefaults_demo">
+                </div>
+            </div>
+
             
             <div class="project-item">
                 <div class="project-title">URLShorter (Go + Redis)</div>
@@ -258,17 +292,6 @@
                 </div>
             </div>
             
-            <div class="project-item">
-                <div class="project-title">LinterSelectel (Go)</div>
-                <a class="project-link" href="https://github.com/ewrika/LinterSelectelGolang" target="_blank">https://github.com/ewrika/LinterSelectelGolang</a>
-                <div class="project-desc">CLI‑линтер на Go: анализ входных данных и выдача результатов проверки.</div>
-                <div class="work-tech">
-                    <span class="work-tag">Golang</span>
-                    <span class="work-tag">CLI</span>
-                    <span class="work-tag">Парсинг</span>
-                    <span class="work-tag">Анализ данных</span>
-                </div>
-            </div>
         </section>
         
         <!-- Секция с Навыками -->
@@ -463,6 +486,7 @@
                 }
                 enableImgZoom('.meme-img');
                 enableImgZoom('.project-screen');
+                enableImgZoom('.cert-thumb');
                 enableImgZoom('.gif-left img');
                 enableImgZoom('.gif-right img');
 
