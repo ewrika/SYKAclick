@@ -244,6 +244,12 @@ body {
   font-size: 2.2rem;
   margin-bottom: 8px;
 }
+.resume-subtitle {
+  color: #444;
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
 .resume-header p {
   color: #555;
 }
@@ -291,6 +297,9 @@ li {
   background: #f8f8f8;
   border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+.project-highlight {
+  border-left: 4px solid #1976d2;
 }
 .project-title {
   font-weight: bold;
@@ -551,4 +560,156 @@ li {
 }
 .work-link:hover {
   color: #0a5ca8;
+}
+
+.profile-summary {
+  padding: 18px 20px;
+  background: #f8f8f8;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+.profile-summary p {
+  color: #333;
+  line-height: 1.55;
+}
+.profile-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 12px;
+}
+.profile-line {
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr);
+  gap: 16px;
+  align-items: start;
+  padding: 14px 0;
+  border-top: 1px solid #e4e4e4;
+}
+.profile-line:first-child {
+  border-top: none;
+  padding-top: 4px;
+}
+.profile-line-title {
+  color: #1976d2;
+  font-weight: 800;
+}
+.profile-line-body p {
+  margin-bottom: 8px;
+}
+.profile-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.profile-tags span {
+  color: #333;
+  background: #fff;
+  border: 1px solid #e1e1e1;
+  border-radius: 8px;
+  padding: 4px 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+.summary-grid,
+.skill-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 14px;
+}
+.skill-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-bottom: 14px;
+}
+.summary-card,
+.skill-card {
+  background: #fff;
+  border: 1px solid #e7e7e7;
+  border-radius: 8px;
+  padding: 14px;
+}
+.summary-title,
+.skill-title {
+  color: #222;
+  font-weight: 800;
+}
+.summary-title {
+  margin-bottom: 6px;
+}
+.skill-card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 32px;
+  margin-bottom: 8px;
+}
+.platform-icons {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex: 0 0 auto;
+}
+.platform-badge,
+.skill-icon {
+  width: 30px;
+  height: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background: #111;
+  color: #fff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+.platform-badge svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+.platform-badge.android {
+  background: #2e7d32;
+}
+.skill-icon {
+  width: auto;
+  min-width: 30px;
+  padding: 0 8px;
+  background: #e3f0fa;
+  color: #1976d2;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0;
+}
+.skill-card p {
+  color: #333;
+  line-height: 1.45;
+}
+section h3 {
+  color: #222;
+  font-size: 1.05rem;
+  margin: 18px 0 8px 0;
+}
+
+@media (max-width: 900px) {
+  .summary-grid,
+  .skill-grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 600px) {
+  .resume-subtitle {
+    font-size: 0.98rem;
+  }
+  .profile-summary,
+  .summary-card,
+  .skill-card {
+    padding: 12px;
+  }
+  .profile-line {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+  .skill-card-header {
+    align-items: flex-start;
+  }
 }
